@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import SmartForm, { Data } from '@/com/forms/SmartForm';
 import toast from 'react-hot-toast';
 import { Container, Title, Paper } from './styled';
@@ -12,12 +13,12 @@ interface ContactFormProps {
 function ContactForm(props: ContactFormProps) {
 	const { title } = props;
 
-	async function handleOnSubmit(data: Data) {
+	const handleOnSubmit = useCallback(async (data: Data) => {
 		// Send form data to email service such has SendGrid or SendInBlue
 
 		console.log('data: ', data);
 		toast.success('Thank you for your email.');
-	}
+	}, []);
 
 	return (
 		<Container maxWidth={false} disableGutters>

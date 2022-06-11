@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useForm, FormProvider, SubmitHandler } from 'react-hook-form';
 import Link from '@/com/ui/Link';
 import toast, { Toaster } from 'react-hot-toast';
@@ -38,7 +39,7 @@ function SmartForm(props: SmartFormProps) {
 	const recaptchaResult = useRecaptchaValidate(RECAPTCHA_SITE_KEY!, RECAPTCHA_VERIFY_URL);
 
 	// trim all data strings before send to callbacks
-	function trimData(data: any) {
+	const trimData = useCallback((data: any) => {
 		if (typeof data === 'object') {
 			for (let x in data) {
 				if (data[x]) data[x] = data[x].trim();
@@ -47,7 +48,7 @@ function SmartForm(props: SmartFormProps) {
 
 		reset && methods.reset();
 		return data;
-	}
+	}, []);
 
 	return (
 		<FormProvider {...methods}>

@@ -5,6 +5,10 @@
 
 Submission forms can range in complexity from a simple contact form to a more complex multi-step form. Validation, error display, accessibility (A11y ARIA), spam prevention, a variety of form fields, data gathering, and eventually submitting the data to the server are all factors to consider when creating a good form component. Wouldn't it be much easier if there was a SmartForm, a reusable, dynamic form that did all the heavy lifting for us and all we had to do was add the fields we wanted to display and everything worked smoothly? In this project example, I'll illustrate how to do it with [React Hook Form](https://react-hook-form.com/) and [Google reCAPTCHA V3](https://www.google.com/recaptcha/about/). 
 
+## CodeSandbox
+
+[![CodeSandbox Example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/tamvo22/SmartForm)
+
 ## Starter project
 
 This project is based on the starter [Next.js + MUI 5 Light/Dark Mode Theme + TypeScript example](https://github.com/tamvo22/mui-v5-theme).
