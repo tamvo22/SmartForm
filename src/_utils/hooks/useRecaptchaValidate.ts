@@ -25,7 +25,7 @@ export const useRecaptchaValidate = (recaptchaSiteKey: string, apiRoute: string)
 			const result = await axiosClient(apiRoute, { headers: requestHeaders });
 
 			if (result.data.verified) {
-				isMounted && setRecaptchaResult(true);
+				isMounted() && setRecaptchaResult(true);
 			}
 		});
 	}, [recaptchaSiteKey, apiRoute]);

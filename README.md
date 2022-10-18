@@ -36,11 +36,11 @@ In order to create a SmartForm, we would need to do the following:
 import { useCallback, useEffect, useRef } from 'react';
 
 export default function useIsMounted() {
-  const isMountedRef = useRef(true);
+  const isMountedRef = useRef(false);
 
   useEffect(() => {
     isMountedRef.current = true;
-    
+
     return () => {
       isMountedRef.current = false;
     };
@@ -50,8 +50,9 @@ export default function useIsMounted() {
     return isMountedRef.current;
   }, []);
 
-  return isMounted();
+  return isMounted;
 }
+
 ```
 
 - The Google reCAPTCHA V3 Site key is a public key that must be sent to the client for verification. To enable our environment variable to be public, we can either use the [prefix NEXT_PUBLIC_](https://nextjs.org/docs/basic-features/environment-variables) or set [publicRuntimeConfig in next.config.js](https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration). In our example, I used the Next.js NEXT_PUBLIC_ prefix to make things easier.
@@ -225,7 +226,7 @@ export const useRecaptchaValidate = (recaptchaSiteKey: string, apiRoute: string)
       const result = await axiosClient(apiRoute, { headers: requestHeaders });
 
       if (result.data.verified) {
-        isMounted && setRecaptchaResult(true);
+        isMounted() && setRecaptchaResult(true);
       }
     });
   }, [recaptchaSiteKey, apiRoute]);
