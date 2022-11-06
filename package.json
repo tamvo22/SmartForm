@@ -1,7 +1,12 @@
 {
-  "name": "nextjs-with-typescript",
-  "version": "5.0.0",
+  "name": "nextjs-react-hook-forms-smart-form",
+  "version": "1.0.0",
   "private": true,
+  "description": "Next.js & React-Hook-Forms Smart Form",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tamvo22/SmartForm"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
