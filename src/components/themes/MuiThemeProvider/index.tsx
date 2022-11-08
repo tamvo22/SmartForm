@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { NextPageWithLayout } from '@/types/global';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
 import { ThemeModeContext } from '@/utils/hooks/useDarkMode';
@@ -22,7 +21,7 @@ export default function MuiThemeProvider({ Component, children }: DarkThemeProvi
 	// Next.js Per-Page layout
 	const getLayout = Component.getLayout ?? ((page: React.ReactNode) => page);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setMounted(true);
 		return () => {
 			setMounted(false);
